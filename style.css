@@ -103,3 +103,44 @@ body{
   .lightbox {
     width: 500px;
   }
+
+  .images{
+    background: url("./img/camera-background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 1000px;
+  }
+  .images-content-left{
+      position: relative;
+      right:-120%;
+      display:flex;
+      justify-content: space-evenly;
+      align-items: center;
+  }
+  .images-content-left p,
+  .images-content-right p{
+    background-color: white;
+    opacity:0.8;
+    border-radius: 10px;
+    width: 600px; 
+  }
+  .images-content-left img, 
+  .images-content-right img {
+    height: 250px;
+    width:  450px;
+  }
+
+  .images-content-right{
+      position: relative; 
+      left:-120%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+  }
+
+
+  footer{
+      background-color: gray;
+      height:50px;
+  }
