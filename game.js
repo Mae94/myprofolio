@@ -1,27 +1,40 @@
 window.focus();
 enchant();
 
+var enemies = [];
+
 window.onload = function(){
     
     var core = new Core(1110, 400);
 
     core.fps = 15;
 
-    core.preload('./images/chara2.png', './images/monster/monster1.gif');
+    core.preload('./images/chara1.png', './images/monster/monster1.gif');
     core.onload = function(){
         var bear = new Sprite(32,32);
-        bear.image = core.assets['./images/chara2.png'];
+        bear.image = core.assets['./images/chara1.png'];
         
         bear.x = 100;
         bear.y = 0;
 
-        var enemy = new Sprite(50,50);
-        enemy.image = core.assets['./images/monster/monster1.gif'];
+        for(var i = 0; i<10; i++){
+            var enemy = new Sprite(50,50);
         
-        enemy.x = 400;
-        enemy.y = 0;
+            enemy.image = core.assets['./images/monster/monster1.gif'];
+            
+            enemy.x = 400  + (i * 50);
+            enemy.y = (i * 50);
+            enemy.frame = 2;
+            core.rootScene.addChild(enemy);
+        }
 
-        bear.addEventListener('enterframe',function(){
+        
+        
+
+       var gameOverScene = new Scene();
+       gameOverScene.backgroundColor ='white'; 
+
+ bear.addEventListener('enterframe',function(){
             // this.y += 10;
             // if (this.y >320) {
             //     this.y = 0;
@@ -39,6 +52,12 @@ window.onload = function(){
             if(core.input.down){
                 this.y += 5;
             }
+            if(this.within(enemy,10)){
+            // label.text = 'HIT!'
+            core.pushScene(gameOverScene);
+            core.stop();
+            label.text = 'GAMEOVER'
+            }
 
             bear.on('touchstart',function(){
                 core.rootScene.removeChild(this);
@@ -49,16 +68,19 @@ window.onload = function(){
                 bear.y = e.y;
             })
         });
+        
+        
+       
 
         core.rootScene.addChild(bear);
-        core.rootScene.addChild(enemy);
+        
 
         var label = new Label();
         label.x = 1000;
         label.y = 5;
         label.color ='red';
         label.font ='19px "Arial"';
-        label.text = '0';
+       
         label.on('enterframe',function(){
             label.text = core.frame;
         })

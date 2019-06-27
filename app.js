@@ -9,7 +9,7 @@ $(function(){
       $('.img-box').append($('<img class="lightbox">'));
 
       let imageSrc = $(this).attr('small-img');
-      $('.lightbox').attr('lightbox', imageSrc);
+      $('.lightbox').attr('img-box', imageSrc);
       console.log('imageScr');
 
       $('.close').click(function(){
