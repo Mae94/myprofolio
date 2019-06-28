@@ -1,16 +1,18 @@
 $(function(){
 
-    $('.small-img').click(function(){
+    $('.picture').click(function(){
         
       $('<div id="over">').appendTo($('body')).hide().fadeIn();
       $('#over').append($('<div class="img-box">'));
       $('#over').append($('<span class="close">&times;</span>'));
     //   $('.img-box').append($('<span class="close">&times;</span>'));
       $('.img-box').append($('<img class="lightbox">'));
+      $('.lightbox').text('hello hello');
+      
 
-      let imageSrc = $(this).attr('small-img');
-      $('.lightbox').attr('img-box', imageSrc);
-      console.log('imageScr');
+      let imageSrc = $(this).attr('src');
+      $('.lightbox').attr('src', imageSrc);
+      
 
       $('.close').click(function(){
           $('#over').fadeOut(function(){

@@ -101,8 +101,12 @@ body{
   }
   
   .lightbox {
-    width: 500px;
-  }
+    width: 400px;
+}
+
+.nexseed{
+  position: relative;
+}
 
   .images{
     background: url("../img/camera-background.jpg");
@@ -180,5 +184,40 @@ body{
     display: flex;
     justify-content: end;
   }
+
+  @media screen and (max-width:600px){
+
+    .container{
+      width: 600px;
+    }
+    .menu-right,
+    .menu-left{
+      display: none;
+    }
+   .menubar{
+     width: 600px;
+   }
+  .flex-container{
+    display: flex;
+    justify-content: center;
+    width: 600px;
+  }
+  iframe{
+    width: 600px;
+  }
+
+  .images-content-left p,
+  .images-content-right p{
+    display: none; 
+  }
+  .individual{
+    width: 600px;
+  }
+  .individual ul,
+  .team ul{
+    width: 600px;
+  }
+  }
+  
 
 
